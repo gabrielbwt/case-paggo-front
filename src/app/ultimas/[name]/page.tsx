@@ -30,7 +30,7 @@ export default async function Ultimas({ params }: { params: { name: string } }) 
 
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-    const response = await fetch(`${backendUrl}/${params.name}`, {
+    const response = await fetch(`${backendUrl}/extractions/${params.name}`, {
         method: "GET",
     });
 
