@@ -41,9 +41,11 @@ export default async function Ultimas({ params }: { params: { name: string } }) 
     }
 
     const data: LastExtractionProps = await response.json();
-    const lastExtractions = data?.data?.sort((a, b) => {
+    const lastExtractions = Array.isArray(data?.data) ? data.data.sort((a, b) => {
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-    });
+    }) : [];
+
+    const lastExtractionsLength = lastExtractions?.length;
 
     return (
         <main className="bg-gray-900 text-white min-h-screen h-auto">
@@ -55,6 +57,13 @@ export default async function Ultimas({ params }: { params: { name: string } }) 
                             <ExtractionCard key={index} imageUrl={item.image_url} title={item.title} content={item.content} extra_informations={item.additional_info} />
                         );
                     })}
+                    {
+                        lastExtractionsLength === 0 ? (
+                            <div className="text-center">
+                                <h1 className="text-2xl font-bold">Nenhuma extração realizada</h1>
+                            </div>
+                        ) : null
+                    }
                 </div>
             </div>
         </main>

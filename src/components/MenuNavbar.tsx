@@ -18,7 +18,7 @@ export default function MenuNavbar({ user, showMenuOptions }: MenuNavbarProps) {
                 <p className="text-sm font-medium text-gray-800 ">{user?.name}</p>
             </div>
             <div className="p-1.5 space-y-0.5">
-                <a className="flex items-center gap-x-3.5 py-2 px-2 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 " href="/paginateste">
+                <a className="flex items-center gap-x-3.5 py-2 px-2 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 " href="/home">
                     <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                     Pagina Inicial
                 </a>
