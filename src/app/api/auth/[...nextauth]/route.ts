@@ -12,7 +12,7 @@ const handler = NextAuth({
         async jwt({ token, user, account }) {
             if (user) {
                 token.name = user.name;
-                token.email = user.email;  // Armazena o email no token JWT
+                token.email = user.email;  
             }
             if (account) {
                 token.accessToken = account.accessToken;
@@ -21,7 +21,7 @@ const handler = NextAuth({
         },
         async session({ session, token }) {
             if (session.user) {
-                session.user.email = token.email;  // Adiciona o email do token à sessão
+                session.user.email = token.email; 
             }
             session.expires = token.sub ?? '';
 
