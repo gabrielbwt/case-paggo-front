@@ -35,7 +35,9 @@ export default function FileManager({user}: FileManagerProps) {
         formData.append("file", file);
         formData.append("name", user?.name ?? '');
 
-        fetch("http://localhost:3334/upload/image", {
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+        fetch(`${backendUrl}/upload/image`, {
             method: "POST",
             body: formData,
         })
