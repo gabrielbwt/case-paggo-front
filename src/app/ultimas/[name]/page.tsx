@@ -45,22 +45,22 @@ export default async function Ultimas({ params }: { params: { name: string } }) 
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     }) : [];
 
-    const lastExtractionsLength = lastExtractions?.length;
+    const hasExtractions = lastExtractions?.length > 0;
 
     return (
         <main className="bg-gray-900 text-white min-h-screen h-auto">
             <Navbar user={session.user} />
-            <div className="w-full flex items-center justify-center mt-[0rem]">
-                <div className="max-w-[50rem] flex items-center justify-start flex-col gap-[1rem] pb-[3rem]">
+            <div className="w-full min-h-[calc(100vh-3.5rem)] flex items-center justify-center mt-[0rem]">
+                <div className={`max-w-[50rem] flex items-center justify-start flex-col gap-[1rem] ${hasExtractions ? 'pb-12' : ''} `}>
                     {lastExtractions?.map((item: any, index: number) => {
                         return (
                             <ExtractionCard key={index} imageUrl={item.image_url} title={item.title} content={item.content} extra_informations={item.additional_info} />
                         );
                     })}
                     {
-                        lastExtractionsLength === 0 ? (
+                        !hasExtractions ? (
                             <div className="flex items-center justify-center">
-                                <h1 className="">Nenhuma extração realizada</h1>
+                                <div>Nenhuma extração realizada</div>
                             </div>
                         ) : null
                     }
