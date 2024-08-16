@@ -59,8 +59,8 @@ export default async function Ultimas({ params }: { params: { name: string } }) 
                     })}
                     {
                         lastExtractionsLength === 0 ? (
-                            <div className="text-center">
-                                <h1 className="text-2xl font-bold">Nenhuma extração realizada</h1>
+                            <div className="flex items-center justify-center">
+                                <h1 className="">Nenhuma extração realizada</h1>
                             </div>
                         ) : null
                     }
